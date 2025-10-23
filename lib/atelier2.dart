@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'atelier3.dart'; // Import pour la navigation
 
 // Modèle de données
 class Product {
@@ -65,10 +66,21 @@ class ProductListPageM3 extends StatelessWidget {
           // Étape 2: Construction d'une carte produit
           return Card(
             margin: const EdgeInsets.only(bottom: 16),
-            child: Padding(
-              padding: const EdgeInsets.all(16),
-              child: Row(
-                children: [
+            child: InkWell(
+              onTap: () {
+                // Navigation vers la page de détails
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => ProductDetailPage(product: product),
+                  ),
+                );
+              },
+              borderRadius: BorderRadius.circular(12),
+              child: Padding(
+                padding: const EdgeInsets.all(16),
+                child: Row(
+                  children: [
                   // Étape 3: Image avec badge "Nouveau"
                   Stack(
                     children: [
@@ -162,6 +174,7 @@ class ProductListPageM3 extends StatelessWidget {
                 ],
               ),
             ),
+          ),
           );
         },
       ),

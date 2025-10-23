@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'atelier1.dart'; // ignore: unused_import
 import 'atelier2.dart';
+import 'atelier3.dart'; // ignore: unused_import
 
 void main() {
   runApp(const MyApp());
