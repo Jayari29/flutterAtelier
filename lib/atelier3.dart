@@ -30,7 +30,7 @@ class _ProductDetailPageState extends State<ProductDetailPage> {
           SliverAppBar(
             expandedHeight: 300,
             flexibleSpace: FlexibleSpaceBar(
-              background: Image.network(
+              background: Image.asset(
                 widget.product.image,
                 fit: BoxFit.cover,
               ),
@@ -202,7 +202,8 @@ class _ProductDetailPageState extends State<ProductDetailPage> {
                     // Action d'ajout au panier
                     ScaffoldMessenger.of(context).showSnackBar(
                       SnackBar(
-                        content: Text('${widget.product.name} ajouté au panier'),
+                        content:
+                            Text('${widget.product.name} ajouté au panier'),
                       ),
                     );
                   },

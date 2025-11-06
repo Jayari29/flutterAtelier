@@ -25,21 +25,21 @@ class ProductListPageM3 extends StatelessWidget {
     Product(
       'iPhone 15',
       999,
-      'https://picsum.photos/200/300',
+      'images/iphone-15.jpg',
       isNew: true,
       rating: 4.5,
     ),
     Product(
       'Samsung Galaxy',
       799,
-      'https://picsum.photos/201/300',
+      'images/samsung.jpg',
       isNew: false,
       rating: 4.2,
     ),
     Product(
       'Google Pixel',
       699,
-      'https://picsum.photos/202/300',
+      'images/google.jpg',
       isNew: true,
       rating: 4.7,
     ),
@@ -81,100 +81,100 @@ class ProductListPageM3 extends StatelessWidget {
                 padding: const EdgeInsets.all(16),
                 child: Row(
                   children: [
-                  // Étape 3: Image avec badge "Nouveau"
-                  Stack(
-                    children: [
-                      Container(
-                        width: 80,
-                        height: 80,
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(12),
-                          image: DecorationImage(
-                            image: NetworkImage(product.image),
-                            fit: BoxFit.cover,
-                          ),
-                        ),
-                      ),
-                      if (product.isNew)
-                        Positioned(
-                          top: 4,
-                          left: 4,
-                          child: Container(
-                            padding: const EdgeInsets.symmetric(
-                              horizontal: 6,
-                              vertical: 2,
-                            ),
-                            decoration: BoxDecoration(
-                              color: Colors.green,
-                              borderRadius: BorderRadius.circular(4),
-                            ),
-                            child: const Text(
-                              'NEW',
-                              style: TextStyle(
-                                color: Colors.white,
-                                fontSize: 10,
-                                fontWeight: FontWeight.bold,
-                              ),
-                            ),
-                          ),
-                        ),
-                    ],
-                  ),
-                  const SizedBox(width: 16),
-
-                  // Étape 4: Informations du produit
-                  Expanded(
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
+                    // Étape 3: Image avec badge "Nouveau"
+                    Stack(
                       children: [
-                        Text(
-                          product.name,
-                          style: Theme.of(context)
-                              .textTheme
-                              .titleLarge
-                              ?.copyWith(fontWeight: FontWeight.bold),
-                        ),
-                        const SizedBox(height: 8),
-                        Row(
-                          children: [
-                            Icon(
-                              Icons.star,
-                              color: Colors.amber.shade600,
-                              size: 16,
+                        Container(
+                          width: 80,
+                          height: 80,
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(12),
+                            image: DecorationImage(
+                              image: AssetImage(product.image),
+                              fit: BoxFit.cover,
                             ),
-                            const SizedBox(width: 4),
-                            Text(product.rating.toString()),
-                          ],
+                          ),
                         ),
-                        const SizedBox(height: 8),
-                        Text(
-                          '${product.price}€',
-                          style: Theme.of(context)
-                              .textTheme
-                              .headlineSmall
-                              ?.copyWith(
-                                fontWeight: FontWeight.bold,
-                                color: colorScheme.primary,
+                        if (product.isNew)
+                          Positioned(
+                            top: 4,
+                            left: 4,
+                            child: Container(
+                              padding: const EdgeInsets.symmetric(
+                                horizontal: 6,
+                                vertical: 2,
                               ),
-                        ),
+                              decoration: BoxDecoration(
+                                color: Colors.green,
+                                borderRadius: BorderRadius.circular(4),
+                              ),
+                              child: const Text(
+                                'NEW',
+                                style: TextStyle(
+                                  color: Colors.white,
+                                  fontSize: 10,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
+                            ),
+                          ),
                       ],
                     ),
-                  ),
+                    const SizedBox(width: 16),
 
-                  // Étape 5: Bouton d'action Material 3
-                  IconButton(
-                    onPressed: () {
-                      debugPrint('Ajouter ${product.name} au panier');
-                    },
-                    icon: Icon(
-                      Icons.add_shopping_cart,
-                      color: colorScheme.primary,
+                    // Étape 4: Informations du produit
+                    Expanded(
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            product.name,
+                            style: Theme.of(context)
+                                .textTheme
+                                .titleLarge
+                                ?.copyWith(fontWeight: FontWeight.bold),
+                          ),
+                          const SizedBox(height: 8),
+                          Row(
+                            children: [
+                              Icon(
+                                Icons.star,
+                                color: Colors.amber.shade600,
+                                size: 16,
+                              ),
+                              const SizedBox(width: 4),
+                              Text(product.rating.toString()),
+                            ],
+                          ),
+                          const SizedBox(height: 8),
+                          Text(
+                            '${product.price}€',
+                            style: Theme.of(context)
+                                .textTheme
+                                .headlineSmall
+                                ?.copyWith(
+                                  fontWeight: FontWeight.bold,
+                                  color: colorScheme.primary,
+                                ),
+                          ),
+                        ],
+                      ),
                     ),
-                  ),
-                ],
+
+                    // Étape 5: Bouton d'action Material 3
+                    IconButton(
+                      onPressed: () {
+                        debugPrint('Ajouter ${product.name} au panier');
+                      },
+                      icon: Icon(
+                        Icons.add_shopping_cart,
+                        color: colorScheme.primary,
+                      ),
+                    ),
+                  ],
+                ),
               ),
             ),
-          ),
           );
         },
       ),
