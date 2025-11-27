@@ -19,8 +19,9 @@ class CartProvider with ChangeNotifier {
   double get total => subtotal + deliveryFee + taxes;
 
   void addToCart(Product product) {
-    final existingIndex = _items.indexWhere((item) => item.product.id == product.id);
-    
+    final existingIndex =
+        _items.indexWhere((item) => item.product.id == product.id);
+
     if (existingIndex >= 0) {
       _items[existingIndex].quantity++;
     } else {
