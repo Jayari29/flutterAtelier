@@ -3,9 +3,6 @@ import 'package:provider/provider.dart';
 import 'firebase_init.dart';
 import 'providers/cart_provider.dart';
 import 'pages/product_list_page.dart';
-import 'atelier1.dart'; // ignore: unused_import
-import 'atelier2.dart'; // ignore: unused_import
-import 'atelier3.dart'; // ignore: unused_import
 
 Future<void> main() async {
   await initializeFirebase();
